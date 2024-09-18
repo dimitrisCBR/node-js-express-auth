@@ -5,14 +5,6 @@ const fs = require('fs');
 const sslCertPath = path.resolve(__dirname, '../..', process.env.DB_CERT_FILENAME);
 const sslCert = fs.readFileSync(sslCertPath).toString();
 
-// const pool = new Pool({
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: {
-//         rejectUnauthorized: true,
-//         ca: sslCert,
-//     }
-// });
-
 module.exports = {
   url: process.env.DATABASE_URL,
   dialect: "postgres",

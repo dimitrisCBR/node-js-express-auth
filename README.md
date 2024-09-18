@@ -16,7 +16,7 @@ npm install
 create `.env` with the following variables:  
 ```
 # Database config
-DB_CERT_FILENAME="my-certificate-file.crt"
+DB_CERT_FILENAME="my-certificate-file.crt" //place the file according to db.config.js -> path.resolve
 DATABASE_URL="postgresql://<username>:<password>@<domain.of.db.com>:<port>/<db-name>"
 
 # Auth secret
