@@ -21,10 +21,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cookieSession({
-    name: "bezkoder-session",
-    keys: ["COOKIE_SECRET"], // should use as secret environment variable
-    httpOnly: true,
-    sameSite: 'strict'
+    name: "auth-session",
+    secret: process.env.COOKIE_SECRET || "your-cookie-secret",
+    httpOnly: true,  // helps protect against XSS
+    sameSite: "Strict", // helps protect against CSRF
+    secure: process.env.NODE_ENV === "production", 
+    maxAge: 86400000          // Cookie expiration set to 24 hours
   })
 );
 
